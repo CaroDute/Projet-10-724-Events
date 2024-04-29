@@ -12,6 +12,7 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+
 const Page = () => {
   const {last} = useData()
   return <>
@@ -116,6 +117,7 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
+        
         <EventCard
           imageSrc={last?.cover}
           title={last?.title}
