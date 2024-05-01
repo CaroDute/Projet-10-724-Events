@@ -21,14 +21,21 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  const [last, setLast] = useState(null)
 
   const getData = useCallback(async () => {
     try {
-      setData(await api.loadData());
+      const loadedData = await api.loadData()
+      setData(loadedData);
+      if (loadedData && loadedData.events.length > 0) {
+        const lastEvent = (loadedData.events[loadedData.events.length - 1]);
+        setLast(lastEvent);
+      }
     } catch (err) {
       setError(err);
     }
   }, []);
+  
 
   useEffect(() => {
     if (data) return;
@@ -43,6 +50,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
+        last: last || {title: "", cover: "", data: "", type: ""} ,
       }}
     >
       {children}
@@ -55,5 +63,6 @@ DataProvider.propTypes = {
 }
 
 export const useData = () => useContext(DataContext);
+
 
 export default DataContext;
