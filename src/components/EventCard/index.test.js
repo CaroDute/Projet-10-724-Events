@@ -12,7 +12,7 @@ describe("When a event card is created", () => {
     expect(imageElement).toBeInTheDocument();
     expect(imageElement.alt).toEqual("image-alt-text");
   });
-  it("a title, a label and a month are displayed", () => {
+  it("a title, a wlabel and a month are displayed", () => {
     render(
       <EventCard
         imageSrc="http://src-image"
