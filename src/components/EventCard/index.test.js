@@ -38,7 +38,7 @@ describe("When a event card is created", () => {
           title="test event"
           label="test label"
           date={new Date("2022-04-01")}
-          small
+          small  
         />
       );
       const cardElement = screen.getByTestId("card-testid");
