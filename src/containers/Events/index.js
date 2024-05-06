@@ -35,7 +35,7 @@ const EventList = () => {
 
   return (
     <>
-      {error && <div>An error occured</div>}
+      {error && (<div>Il y a une erreur</div>)}
       {data === null ? (
         "loading"
       ) : (
