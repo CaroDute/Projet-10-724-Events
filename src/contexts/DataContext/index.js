@@ -21,12 +21,14 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  // Ajout de last pour récupérer le dernier évènement
   const [last, setLast] = useState(null)
 
   const getData = useCallback(async () => {
     try {
       const loadedData = await api.loadData()
       setData(loadedData);
+      // Si data est défini et qu'il y a au moins 1 event alors je récupère le dernier évènement et je met à jour setLast avec
       if (loadedData && loadedData.events.length > 0) {
         const lastEvent = (loadedData.events[loadedData.events.length - 1]);
         setLast(lastEvent);
@@ -50,6 +52,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
+        // Ajout de la propriété pour y avoir accès dans ma page Home
         last: last || {title: "", cover: "", data: "", type: ""} ,
       }}
     >

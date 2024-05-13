@@ -14,6 +14,7 @@ const EventList = () => {
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
+    // Si il n'y a pas de type alors on les affiche tous, sinon on affiche les évènements filtré en fonction de leur type
     (!type
       ? data?.events
       : data?.events.filter(event => event.type === type)) || []

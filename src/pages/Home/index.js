@@ -117,6 +117,7 @@ const Page = () => {
     <footer className="row" data-testid="footer-test">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
+        {/* Si last est défini on affiche EventCard sinon rien pour éviter les erreurs si nul ou undefined */}
         {last && ( 
         <EventCard
           imageSrc={last?.cover}

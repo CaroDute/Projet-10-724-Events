@@ -1,4 +1,5 @@
 export const MONTHS = {
+  // Début à 0 pour afficher les bonnes dates
   0: "janvier",
   1: "février",
   2: "mars",
